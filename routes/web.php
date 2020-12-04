@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DynamicDependent;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dynamic_dependent', [DynamicDependent::class, 'index']);
+Route::post('/dynamic_dependent/fetch', [DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');
